@@ -54,7 +54,7 @@ module Acts #:nodoc:
 
     # Helper method to sort comments by date
     def comments_ordered_by_submitted
-      Comment.where(:commentable_id => id, :commentable_type => self.class.name).order('created_at DESC')
+      Comment.where(:commentable_id => id, :commentable_type => self.class.base_class.name).order('created_at DESC')
     end
 
     # Helper method that defaults the submitted time.
