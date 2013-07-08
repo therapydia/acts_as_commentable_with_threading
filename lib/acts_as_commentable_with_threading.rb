@@ -42,6 +42,11 @@ module Acts #:nodoc:
 
   module LocalInstanceMethods
 
+    # alias for root_comments, i.e. comments without threads
+    def comments
+      root_comments
+    end
+    
     # Helper method to display only root threads, no children/replies
     def root_comments
       self.comment_threads.where(:parent_id => nil)
