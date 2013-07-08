@@ -16,6 +16,7 @@ module Acts #:nodoc:
 
   module ClassMethods
     def acts_as_commentable
+      has_many :comments, :class_name => "Comment", :as => :commentable
       has_many :comment_threads, :class_name => "Comment", :as => :commentable
       before_destroy { |record| record.root_comments.destroy_all }
       include Acts::CommentableWithThreading::LocalInstanceMethods
